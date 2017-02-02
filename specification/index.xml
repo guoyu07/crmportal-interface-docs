@@ -231,7 +231,7 @@
       <guid>https://electrumpayments.github.io/crmportal-interface-docs/specification/introduction/</guid>
       <description>
 
-&lt;p&gt;&lt;strong&gt;Version&lt;/strong&gt; 1.0.0&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Version&lt;/strong&gt; 1.0.1&lt;/p&gt;
 
 &lt;p&gt;The Electrum CRM Portal Interface describes a server interface against which calls can be made to retrieve information from a backend CRM system. The intended use cases include the lookup of customer-linked account or purchase history data from a bank or retailer&amp;#x27;s CRM environment. It is not intended that the CRM system is hosted by Electrum, but rather that this interface abstracts the logic required to execute a set of predefined CRM queries, hence simplifying communication. Access to the CRM system itself will be handled independently through an appropriate client implementation.&lt;/p&gt;
 
@@ -377,7 +377,7 @@ info:
     \ the logic required to execute a set of predefined CRM queries, hence simplifying\
     \ communication. Access to the CRM system itself will be handled independently\
     \ through an appropriate client implementation.&amp;quot;
-  version: &amp;quot;1.0.0&amp;quot;
+  version: &amp;quot;1.0.1&amp;quot;
   title: &amp;quot;CRM Portal Interface&amp;quot;
   contact:
     name: &amp;quot;Electrum API&amp;quot;
