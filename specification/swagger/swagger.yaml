@@ -1,0 +1,147 @@
+---
+swagger: "2.0"
+info:
+  description: "The Electrum CRM Portal Interface describes a server interface against\
+    \ which calls can be made to retrieve information from a backend CRM system. The\
+    \ intended use cases include the lookup of customer-linked account or purchase\
+    \ history data from a bank or retailer's CRM environment. It is not intended that\
+    \ the CRM system is hosted by Electrum, but rather that this interface abstracts\
+    \ the logic required to execute a set of predefined CRM queries, hence simplifying\
+    \ communication. Access to the CRM system itself will be handled independently\
+    \ through an appropriate client implementation."
+  version: "1.0.0"
+  title: "CRM Portal Interface"
+  contact:
+    name: "Electrum API"
+    url: "http://io.electrum"
+    email: "api@electrum.co.za"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "sandbox.electrum.io"
+basePath: "/crmportal/v1"
+schemes:
+- "https"
+paths:
+  /crmportal/v1/purchaseHistory:
+    post:
+      summary: "Query purchase history"
+      description: "Lookup a customer's purchase history for a specified service."
+      operationId: "getPurchaseHistory"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "A JSON body containing request parameters."
+        required: false
+        schema:
+          $ref: "#/definitions/PurchaseHistoryRequest"
+      responses:
+        200:
+          description: "An array of purchases matching the query."
+          schema:
+            $ref: "#/definitions/PurchaseHistoryResponse"
+      security:
+      - httpBasic: []
+securityDefinitions:
+  httpBasic:
+    description: "All requests require HTTP basic authentication, where user name\
+      \ equals the value used in\n                    MessageId.institutionId and\
+      \ password has been agreed with Electrum."
+    type: "basic"
+definitions:
+  PrepaidElectricityPurchase:
+    type: "object"
+    required:
+    - "customerName"
+    - "meterId"
+    - "purchaseDate"
+    - "requestAmount"
+    - "status"
+    - "tenderAmount"
+    properties:
+      meterId:
+        type: "string"
+      serviceProvider:
+        type: "string"
+      customerName:
+        type: "string"
+      requestAmount:
+        type: "integer"
+        format: "int64"
+        description: "Amount in minor denomination, e.g. R799.95 is encoded as 79995"
+      tenderAmount:
+        type: "integer"
+        format: "int64"
+        description: "Amount in minor denomination, e.g. R799.95 is encoded as 79995"
+      saleUnits:
+        type: "number"
+        format: "double"
+      freeUnits:
+        type: "number"
+        format: "double"
+      saleToken:
+        type: "string"
+      freeToken:
+        type: "string"
+      purchaseDate:
+        type: "string"
+        format: "date-time"
+      status:
+        type: "string"
+        enum:
+        - "PENDING"
+        - "SUCCESSFUL"
+        - "FAILED"
+      tariffBreakdown:
+        type: "string"
+      tariffTotal:
+        type: "integer"
+        format: "int64"
+        description: "Amount in minor denomination, e.g. R799.95 is encoded as 79995"
+      vat:
+        type: "integer"
+        format: "int64"
+        description: "Amount in minor denomination, e.g. R799.95 is encoded as 79995"
+      debtRecovery:
+        type: "integer"
+        format: "int64"
+        description: "Amount in minor denomination, e.g. R799.95 is encoded as 79995"
+      serviceCharge:
+        type: "integer"
+        format: "int64"
+        description: "Amount in minor denomination, e.g. R799.95 is encoded as 79995"
+    description: "Details of a purchase"
+  PurchaseHistoryRequest:
+    type: "object"
+    required:
+    - "customerId"
+    - "idType"
+    - "service"
+    properties:
+      service:
+        type: "string"
+        description: "The service for which information is requested (e.g. electricity)."
+        enum:
+        - "ELECTRICITY"
+      customerId:
+        type: "string"
+        description: "ID of the customer for which information is requested. The type\
+          \ of ID is supplied by the `idType` parameter"
+      idType:
+        type: "string"
+        description: "Type of ID used to specify the customer (eg. loyalty card number)."
+        enum:
+        - "LOYALTY_CARD"
+    description: "Object containing request parameters."
+  PurchaseHistoryResponse:
+    type: "object"
+    properties:
+      prepaidElectricityPurchaseHistory:
+        type: "array"
+        description: "An array of prepaid electricity purchases."
+        items:
+          $ref: "#/definitions/PrepaidElectricityPurchase"

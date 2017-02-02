@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <title>Swagger - Airtime Service Interface</title>
+    <meta name="generator" content="Hugo 0.18.1" />
+
+    
+    <link rel="canonical" href="https://electrumpayments.github.io/crmportal-interface-docs/specification/swagger/">
+    
+
+    <meta property="og:url" content="https://electrumpayments.github.io/crmportal-interface-docs/specification/swagger/">
+    <meta property="og:title" content="Airtime Service Interface">
+    <meta property="og:image" content="https://electrumpayments.github.io/crmportal-interface-docs/images/logo-square.png">
+    <meta name="apple-mobile-web-app-title" content="Airtime Service Interface">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://electrumpayments.github.io/crmportal-interface-docs/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://electrumpayments.github.io/crmportal-interface-docs/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://electrumpayments.github.io/crmportal-interface-docs/fonts/icon.eot?52m981');
+        src: url('https://electrumpayments.github.io/crmportal-interface-docs/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+             url('https://electrumpayments.github.io/crmportal-interface-docs/fonts/icon.woff?52m981')
+               format('woff'),
+             url('https://electrumpayments.github.io/crmportal-interface-docs/fonts/icon.ttf?52m981')
+               format('truetype'),
+             url('https://electrumpayments.github.io/crmportal-interface-docs/fonts/icon.svg?52m981#icon')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://electrumpayments.github.io/crmportal-interface-docs/stylesheets/highlight/highlight.css">
+    <link rel="stylesheet" href="https://electrumpayments.github.io/crmportal-interface-docs/stylesheets/application.css">
+    <link rel="stylesheet" href="https://electrumpayments.github.io/crmportal-interface-docs/stylesheets/palettes.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu%2bMono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://electrumpayments.github.io/crmportal-interface-docs/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-cyan palette-accent-orange">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Airtime Service Interface
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/electrumpayments" title="@electrumpayments on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+
+    
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://github.com/electrumpayments/airtime-service-interface" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://electrumpayments.github.io/crmportal-interface-docs/images/logo-square.png">
+        </div>
+      
+      <div class="name">
+        
+          <br>
+          electrumpayments/airtime-service-interface
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Protocol Basics" href="https://electrumpayments.github.io/crmportal-interface-docs/protocol-basics/">
+	
+	Protocol Basics
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+  <span class="section">Specification</span>
+    <ul>
+      
+        
+        
+
+
+
+<a  title="Introduction" href="https://electrumpayments.github.io/crmportal-interface-docs/specification/introduction/">
+	
+	Introduction
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Operations" href="https://electrumpayments.github.io/crmportal-interface-docs/specification/operations/">
+	
+	Operations
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Definitions" href="https://electrumpayments.github.io/crmportal-interface-docs/specification/definitions/">
+	
+	Definitions
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Swagger" href="https://electrumpayments.github.io/crmportal-interface-docs/specification/swagger/">
+	
+	Swagger
+</a>
+
+
+
+      
+        
+        
+
+
+
+<a  title="Release Notes" href="https://electrumpayments.github.io/crmportal-interface-docs/specification/release-notes/">
+	
+	Release Notes
+</a>
+
+
+
+      
+    </ul>
+  
+</li>
+
+
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Swagger </h1>
+
+			
+
+<p>The <a href="http://swagger.io">swagger (Open API)</a> definition of the interface specification can be found <a href="https://electrumpayments.github.io/crmportal-interface-docs/specification/swagger/swagger.yaml">here</a>, as well as below.</p>
+
+<p>Many tools are available for processing swagger files, and using a code generation tool to create a boilerplate client or server can be an excellent starting point for development. We highly recommend looking at <a href="https://github.com/swagger-api/swagger-codegen">swagger-codegen</a> for a generator in your preferred language when starting out.</p>
+
+<h3 id="swagger-definition">Swagger definition</h3>
+
+<pre><code class="language-yaml">---
+swagger: &quot;2.0&quot;
+info:
+  description: &quot;The Electrum CRM Portal Interface describes a server interface against\
+    \ which calls can be made to retrieve information from a backend CRM system. The\
+    \ intended use cases include the lookup of customer-linked account or purchase\
+    \ history data from a bank or retailer's CRM environment. It is not intended that\
+    \ the CRM system is hosted by Electrum, but rather that this interface abstracts\
+    \ the logic required to execute a set of predefined CRM queries, hence simplifying\
+    \ communication. Access to the CRM system itself will be handled independently\
+    \ through an appropriate client implementation.&quot;
+  version: &quot;1.0.0&quot;
+  title: &quot;CRM Portal Interface&quot;
+  contact:
+    name: &quot;Electrum API&quot;
+    url: &quot;http://io.electrum&quot;
+    email: &quot;api@electrum.co.za&quot;
+  license:
+    name: &quot;Apache 2.0&quot;
+    url: &quot;http://www.apache.org/licenses/LICENSE-2.0.html&quot;
+host: &quot;sandbox.electrum.io&quot;
+basePath: &quot;/crmportal/v1&quot;
+schemes:
+- &quot;https&quot;
+paths:
+  /crmportal/v1/purchaseHistory:
+    post:
+      summary: &quot;Query purchase history&quot;
+      description: &quot;Lookup a customer's purchase history for a specified service.&quot;
+      operationId: &quot;getPurchaseHistory&quot;
+      consumes:
+      - &quot;application/json&quot;
+      produces:
+      - &quot;application/json&quot;
+      parameters:
+      - in: &quot;body&quot;
+        name: &quot;body&quot;
+        description: &quot;A JSON body containing request parameters.&quot;
+        required: false
+        schema:
+          $ref: &quot;#/definitions/PurchaseHistoryRequest&quot;
+      responses:
+        200:
+          description: &quot;An array of purchases matching the query.&quot;
+          schema:
+            $ref: &quot;#/definitions/PurchaseHistoryResponse&quot;
+      security:
+      - httpBasic: []
+securityDefinitions:
+  httpBasic:
+    description: &quot;All requests require HTTP basic authentication, where user name\
+      \ equals the value used in
+                    MessageId.institutionId and\
+      \ password has been agreed with Electrum.&quot;
+    type: &quot;basic&quot;
+definitions:
+  PrepaidElectricityPurchase:
+    type: &quot;object&quot;
+    required:
+    - &quot;customerName&quot;
+    - &quot;meterId&quot;
+    - &quot;purchaseDate&quot;
+    - &quot;requestAmount&quot;
+    - &quot;status&quot;
+    - &quot;tenderAmount&quot;
+    properties:
+      meterId:
+        type: &quot;string&quot;
+      serviceProvider:
+        type: &quot;string&quot;
+      customerName:
+        type: &quot;string&quot;
+      requestAmount:
+        type: &quot;integer&quot;
+        format: &quot;int64&quot;
+        description: &quot;Amount in minor denomination, e.g. R799.95 is encoded as 79995&quot;
+      tenderAmount:
+        type: &quot;integer&quot;
+        format: &quot;int64&quot;
+        description: &quot;Amount in minor denomination, e.g. R799.95 is encoded as 79995&quot;
+      saleUnits:
+        type: &quot;number&quot;
+        format: &quot;double&quot;
+      freeUnits:
+        type: &quot;number&quot;
+        format: &quot;double&quot;
+      saleToken:
+        type: &quot;string&quot;
+      freeToken:
+        type: &quot;string&quot;
+      purchaseDate:
+        type: &quot;string&quot;
+        format: &quot;date-time&quot;
+      status:
+        type: &quot;string&quot;
+        enum:
+        - &quot;PENDING&quot;
+        - &quot;SUCCESSFUL&quot;
+        - &quot;FAILED&quot;
+      tariffBreakdown:
+        type: &quot;string&quot;
+      tariffTotal:
+        type: &quot;integer&quot;
+        format: &quot;int64&quot;
+        description: &quot;Amount in minor denomination, e.g. R799.95 is encoded as 79995&quot;
+      vat:
+        type: &quot;integer&quot;
+        format: &quot;int64&quot;
+        description: &quot;Amount in minor denomination, e.g. R799.95 is encoded as 79995&quot;
+      debtRecovery:
+        type: &quot;integer&quot;
+        format: &quot;int64&quot;
+        description: &quot;Amount in minor denomination, e.g. R799.95 is encoded as 79995&quot;
+      serviceCharge:
+        type: &quot;integer&quot;
+        format: &quot;int64&quot;
+        description: &quot;Amount in minor denomination, e.g. R799.95 is encoded as 79995&quot;
+    description: &quot;Details of a purchase&quot;
+  PurchaseHistoryRequest:
+    type: &quot;object&quot;
+    required:
+    - &quot;customerId&quot;
+    - &quot;idType&quot;
+    - &quot;service&quot;
+    properties:
+      service:
+        type: &quot;string&quot;
+        description: &quot;The service for which information is requested (e.g. electricity).&quot;
+        enum:
+        - &quot;ELECTRICITY&quot;
+      customerId:
+        type: &quot;string&quot;
+        description: &quot;ID of the customer for which information is requested. The type\
+          \ of ID is supplied by the `idType` parameter&quot;
+      idType:
+        type: &quot;string&quot;
+        description: &quot;Type of ID used to specify the customer (eg. loyalty card number).&quot;
+        enum:
+        - &quot;LOYALTY_CARD&quot;
+    description: &quot;Object containing request parameters.&quot;
+  PurchaseHistoryResponse:
+    type: &quot;object&quot;
+    properties:
+      prepaidElectricityPurchaseHistory:
+        type: &quot;array&quot;
+        description: &quot;An array of prepaid electricity purchases.&quot;
+        items:
+          $ref: &quot;#/definitions/PrepaidElectricityPurchase&quot;
+</code></pre>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2017 Released under the Apache 2.0 license
+				
+			</aside>
+
+			<footer class="footer">
+				<nav class="pagination" aria-label="Footer">
+  <div >
+    <img src="https://electrumpayments.github.io/crmportal-interface-docs/images/logo-small-white.png" align="right"/>
+  </div>
+</nav>
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/electrumpayments.github.io\/crmportal-interface-docs\/';
+      var repo_id  = 'electrumpayments\/airtime-service-interface';
+    
+    </script>
+
+    <script src="https://electrumpayments.github.io/crmportal-interface-docs/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(headers.length > 0) {
+        for(var i = 0; i < headers.length; i++) {
+          var li = document.createElement("li");
+          li.setAttribute("class", "anchor");
+
+          var a  = document.createElement("a");
+          a.setAttribute("href", "#" + headers[i].id);
+          a.setAttribute("title", headers[i].innerHTML);
+          a.innerHTML = headers[i].innerHTML;
+          
+          li.appendChild(a)
+          scrollspy.appendChild(li);
+        }
+      } else {
+        scrollspy.parentElement.removeChild(scrollspy)
+      }
+      
+
+      /* Add permanent link next to the headers */
+      var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+      for(var i = 0; i < headers.length; i++) {
+          var a = document.createElement("a");
+          a.setAttribute("class", "headerlink");
+          a.setAttribute("href", "#" + headers[i].id);
+          a.setAttribute("title", "Permanent link")
+          a.innerHTML = "#";
+          headers[i].appendChild(a);
+      }
+    </script>
+
+    
+
+    <script src="//gohugo.io/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
