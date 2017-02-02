@@ -241,7 +241,7 @@
       <guid>https://electrumpayments.github.io/crmportal-interface-docs/specification/introduction/</guid>
       <description>
 
-&lt;p&gt;&lt;strong&gt;Version&lt;/strong&gt; 1.0.0&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Version&lt;/strong&gt; 1.0.1&lt;/p&gt;
 
 &lt;p&gt;The Electrum CRM Portal Interface describes a server interface against which calls can be made to retrieve information from a backend CRM system. The intended use cases include the lookup of customer-linked account or purchase history data from a bank or retailer&amp;#x27;s CRM environment. It is not intended that the CRM system is hosted by Electrum, but rather that this interface abstracts the logic required to execute a set of predefined CRM queries, hence simplifying communication. Access to the CRM system itself will be handled independently through an appropriate client implementation.&lt;/p&gt;
 
@@ -309,7 +309,7 @@
 &lt;p&gt;&lt;tr&gt;
     &lt;th&gt;body&lt;/th&gt;
     &lt;td&gt;body&lt;/td&gt;
-    &lt;td&gt;no&lt;/td&gt;
+    &lt;td&gt;yes&lt;/td&gt;
     &lt;td&gt;A JSON body containing request parameters.&lt;/td&gt;
     &lt;td&gt;&lt;/td&gt;
     &lt;td&gt;&lt;a href=&#34;https://electrumpayments.github.io/crmportal-interface-docs/specification/definitions/#purchasehistoryrequest&#34;&gt;PurchaseHistoryRequest&lt;/a&gt;
@@ -403,6 +403,14 @@
 
 &lt;p&gt;This page describes changes to the CRM Portal Interface implemented for different releases of the interface.&lt;/p&gt;
 
+&lt;h2 id=&#34;v1-0-1&#34;&gt;v1.0.1&lt;/h2&gt;
+
+&lt;p&gt;Released 2 February 2017&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;PurchaseHistoryRequest JSON body is required in post&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&#34;v1-0-0&#34;&gt;v1.0.0&lt;/h2&gt;
 
 &lt;p&gt;Released 31 January 2017&lt;/p&gt;
@@ -439,7 +447,7 @@ info:
     \ the logic required to execute a set of predefined CRM queries, hence simplifying\
     \ communication. Access to the CRM system itself will be handled independently\
     \ through an appropriate client implementation.&amp;quot;
-  version: &amp;quot;1.0.0&amp;quot;
+  version: &amp;quot;1.0.1&amp;quot;
   title: &amp;quot;CRM Portal Interface&amp;quot;
   contact:
     name: &amp;quot;Electrum API&amp;quot;
@@ -466,7 +474,7 @@ paths:
       - in: &amp;quot;body&amp;quot;
         name: &amp;quot;body&amp;quot;
         description: &amp;quot;A JSON body containing request parameters.&amp;quot;
-        required: false
+        required: true
         schema:
           $ref: &amp;quot;#/definitions/PurchaseHistoryRequest&amp;quot;
       responses:

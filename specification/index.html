@@ -267,7 +267,7 @@
 			</a>
 
 			<br>
-			Version 1.0.0
+			Version 1.0.1
 The Electrum CRM Portal Interface describes a server interface against which calls can be made to retrieve information from a backend CRM system. The intended use cases include the lookup of customer-linked account or purchase history data from a bank or retailer&#x27;s CRM environment. It is not intended that the CRM system is hosted by Electrum, but rather that this interface abstracts the logic required to execute a set of predefined CRM queries, hence simplifying communication.
 
 			<hr>
@@ -282,7 +282,7 @@ POST /crmportal/v1/purchaseHistory
 Lookup a customer&#x27;s purchase history for a specified service.
 Security  httpBasic  Request Content-Type: application/json
 Parameters  Name Located in Required Description Default Schema
- body body no A JSON body containing request parameters.  PurchaseHistoryRequest</p>
+ body body yes A JSON body containing request parameters.  PurchaseHistoryRequest</p>
 
 <p>Response Content-Type: application/json
    Status Code Reason Response Model     200 An array of purchases matching the query. PurchaseHistoryResponse
@@ -295,7 +295,8 @@ Parameters  Name Located in Required Description Default Schema
 
 			<br>
 			This page describes changes to the CRM Portal Interface implemented for different releases of the interface.
-v1.0.0 Released 31 January 2017
+v1.0.1 Released 2 February 2017
+ PurchaseHistoryRequest JSON body is required in post  v1.0.0 Released 31 January 2017
  Resource specification for customer purchase history queries Data model specific to prepaid electricity purchases
 
 			<hr>

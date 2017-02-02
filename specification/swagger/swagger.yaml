@@ -9,7 +9,7 @@ info:
     \ the logic required to execute a set of predefined CRM queries, hence simplifying\
     \ communication. Access to the CRM system itself will be handled independently\
     \ through an appropriate client implementation."
-  version: "1.0.0"
+  version: "1.0.1"
   title: "CRM Portal Interface"
   contact:
     name: "Electrum API"
@@ -36,7 +36,7 @@ paths:
       - in: "body"
         name: "body"
         description: "A JSON body containing request parameters."
-        required: false
+        required: true
         schema:
           $ref: "#/definitions/PurchaseHistoryRequest"
       responses:
