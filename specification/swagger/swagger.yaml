@@ -36,7 +36,7 @@ paths:
       - in: "body"
         name: "body"
         description: "A JSON body containing request parameters."
-        required: false
+        required: true
         schema:
           $ref: "#/definitions/PurchaseHistoryRequest"
       responses:

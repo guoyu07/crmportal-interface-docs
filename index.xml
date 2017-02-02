@@ -309,7 +309,7 @@
 &lt;p&gt;&lt;tr&gt;
     &lt;th&gt;body&lt;/th&gt;
     &lt;td&gt;body&lt;/td&gt;
-    &lt;td&gt;no&lt;/td&gt;
+    &lt;td&gt;yes&lt;/td&gt;
     &lt;td&gt;A JSON body containing request parameters.&lt;/td&gt;
     &lt;td&gt;&lt;/td&gt;
     &lt;td&gt;&lt;a href=&#34;https://electrumpayments.github.io/crmportal-interface-docs/specification/definitions/#purchasehistoryrequest&#34;&gt;PurchaseHistoryRequest&lt;/a&gt;
@@ -466,7 +466,7 @@ paths:
       - in: &amp;quot;body&amp;quot;
         name: &amp;quot;body&amp;quot;
         description: &amp;quot;A JSON body containing request parameters.&amp;quot;
-        required: false
+        required: true
         schema:
           $ref: &amp;quot;#/definitions/PurchaseHistoryRequest&amp;quot;
       responses:
