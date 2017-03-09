@@ -9,7 +9,7 @@ info:
     \ the logic required to execute a set of predefined CRM queries, hence simplifying\
     \ communication. Access to the CRM system itself will be handled independently\
     \ through an appropriate client implementation."
-  version: "1.0.1"
+  version: "1.0.2"
   title: "CRM Portal Interface"
   contact:
     name: "Electrum API"
@@ -89,7 +89,6 @@ definitions:
         type: "string"
       purchaseDate:
         type: "string"
-        format: "date-time"
       status:
         type: "string"
         enum:
