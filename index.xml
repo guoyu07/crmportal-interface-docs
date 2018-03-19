@@ -6,6 +6,7 @@
     <description>Recent content on CRM Portal Interface</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Released under the Apache 2.0 license</copyright>
     
 	<atom:link href="https://electrumpayments.github.io/crmportal-interface-docs/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,6 +18,76 @@
       
       <guid>https://electrumpayments.github.io/crmportal-interface-docs/</guid>
       <description>Electrum Payments connects businesses together to transact with each other easily and robustly. This CRM Portal Interface describes a simple interface against which calls can be made to retrieve information from a backend CRM system. The intended use cases include the lookup of customer-linked account or purchase history data from a bank or retailer&amp;rsquo;s CRM environment. It is not intended that the CRM system is hosted by Electrum, but rather that this interface abstracts the logic required to execute a set of predefined CRM queries, hence simplifying communication.</description>
+    </item>
+    
+    <item>
+      <title>Definitions</title>
+      <link>https://electrumpayments.github.io/crmportal-interface-docs/specification/definitions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://electrumpayments.github.io/crmportal-interface-docs/specification/definitions/</guid>
+      <description>AirtimeDataPurchase Details of a airtime/data purchase  Name Type Required Default Restrictions Description   transactionId string required   Optional identifier for the transaction   msisdn string optional   The mobile number of the customer.   requestAmount integer required  format:int64 Amount in minor denomination, e.g. R799.95 is encoded as 79995   serviceProvider string required   The provider of the service.   purchaseDate string required  format:date-time Date of the purchase.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>https://electrumpayments.github.io/crmportal-interface-docs/specification/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://electrumpayments.github.io/crmportal-interface-docs/specification/introduction/</guid>
+      <description>Version 2.0.0
+The Electrum CRM Portal Interface describes a server interface against which calls can be made to retrieve information from a backend CRM system. The intended use cases include the lookup of customer-linked account or purchase history data from a bank or retailer&amp;#x27;s CRM environment. It is not intended that the CRM system is hosted by Electrum, but rather that this interface abstracts the logic required to execute a set of predefined CRM queries, hence simplifying communication.</description>
+    </item>
+    
+    <item>
+      <title>Operations</title>
+      <link>https://electrumpayments.github.io/crmportal-interface-docs/specification/operations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://electrumpayments.github.io/crmportal-interface-docs/specification/operations/</guid>
+      <description> getPurchaseHistory Query purchase history
+POST /crmportal/v2/purchaseHistory
+Lookup a customer&amp;#x27;s purchase history for a specified service.
+Security  httpBasic  Request Content-Type: application/json
+Parameters  Name Located in Required Description Default Schema 
+ body body yes A JSON body containing request parameters.  PurchaseHistoryRequest 
+
+Response Content-Type: application/json
+   Status Code Reason Response Model     200 An array of purchases matching the query. PurchaseHistoryResponse    </description>
+    </item>
+    
+    <item>
+      <title>Protocol Basics</title>
+      <link>https://electrumpayments.github.io/crmportal-interface-docs/protocol-basics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://electrumpayments.github.io/crmportal-interface-docs/protocol-basics/</guid>
+      <description>The CRM Portal Interface is an HTTP-based protocol. A detailed description of the supported operations and definitions can be found in the Specification section. Requests and responses contain information in the HTTP header and - depending on the operation - a JSON message body.
+Security All communication must be secured by establishing an SSL encrypted transport. Basic HTTP authentication is be used to authenticate clients with the service, and is required for all requests.</description>
+    </item>
+    
+    <item>
+      <title>Release Notes</title>
+      <link>https://electrumpayments.github.io/crmportal-interface-docs/specification/release-notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://electrumpayments.github.io/crmportal-interface-docs/specification/release-notes/</guid>
+      <description> This page describes changes to the CRM Portal Interface implemented for different releases of the interface.
+v2.0.0 Released 19 March 2018
+ Not backwards compatible. Added BaseResponse class. PrepaidElectricityPurchase class now extends the BaseResponse class. Added a AirtimeDataPurchase class that extends the BaseResponse class. Added multiple tender support.  v1.0.1 Released 2 February 2017
+ PurchaseHistoryRequest JSON body is required in post  v1.0.0 Released 31 January 2017
+ Resource specification for customer purchase history queries Data model specific to prepaid electricity purchases  </description>
+    </item>
+    
+    <item>
+      <title>Swagger</title>
+      <link>https://electrumpayments.github.io/crmportal-interface-docs/specification/swagger/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://electrumpayments.github.io/crmportal-interface-docs/specification/swagger/</guid>
+      <description>The swagger (Open API) definition of the interface specification can be found here, as well as below.
+Many tools are available for processing swagger files, and using a code generation tool to create a boilerplate client or server can be an excellent starting point for development. We highly recommend looking at swagger-codegen for a generator in your preferred language when starting out.
+Swagger definition --- swagger: &amp;quot;2.0&amp;quot; info: description: &amp;quot;The Electrum CRM Portal Interface describes a server interface against\ \ which calls can be made to retrieve information from a backend\ \ CRM system.</description>
     </item>
     
   </channel>

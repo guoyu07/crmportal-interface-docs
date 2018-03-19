@@ -17,6 +17,35 @@
   </url>
   
   <url>
+    <loc>https://electrumpayments.github.io/crmportal-interface-docs/specification/definitions/</loc>
+  </url>
+  
+  <url>
+    <loc>https://electrumpayments.github.io/crmportal-interface-docs/specification/introduction/</loc>
+  </url>
+  
+  <url>
+    <loc>https://electrumpayments.github.io/crmportal-interface-docs/specification/operations/</loc>
+  </url>
+  
+  <url>
+    <loc>https://electrumpayments.github.io/crmportal-interface-docs/protocol-basics/</loc>
+  </url>
+  
+  <url>
+    <loc>https://electrumpayments.github.io/crmportal-interface-docs/specification/release-notes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://electrumpayments.github.io/crmportal-interface-docs/specification/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://electrumpayments.github.io/crmportal-interface-docs/specification/swagger/</loc>
+  </url>
+  
+  <url>
     <loc>https://electrumpayments.github.io/crmportal-interface-docs/tags/</loc>
     <priority>0</priority>
   </url>

@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <title>Specifications - CRM Portal Interface</title>
-    <meta name="generator" content="Hugo 0.19" />
+    <meta name="generator" content="Hugo 0.31.1" />
 
     
     <link rel="canonical" href="https://electrumpayments.github.io/crmportal-interface-docs/specification/">
@@ -258,7 +258,7 @@
 			</a>
 
 			<br>
-			PrepaidElectricityPurchase Details of a purchase  Name Type Required Default Restrictions Description   transactionId string optional   Optional identifier for the transaction   meterId string required      serviceProvider string optional      customerName string required      requestAmount integer required  format:int64 Amount in minor denomination, e.g. R799.95 is encoded as 79995   tenderAmount integer required  format:int64 Amount in minor denomination, e.
+			AirtimeDataPurchase Details of a airtime/data purchase  Name Type Required Default Restrictions Description   transactionId string required   Optional identifier for the transaction   msisdn string optional   The mobile number of the customer.   requestAmount integer required  format:int64 Amount in minor denomination, e.g. R799.95 is encoded as 79995   serviceProvider string required   The provider of the service.   purchaseDate string required  format:date-time Date of the purchase.
 
 			<hr>
 			
@@ -267,7 +267,7 @@
 			</a>
 
 			<br>
-			Version 1.1.0
+			Version 2.0.0
 The Electrum CRM Portal Interface describes a server interface against which calls can be made to retrieve information from a backend CRM system. The intended use cases include the lookup of customer-linked account or purchase history data from a bank or retailer&#x27;s CRM environment. It is not intended that the CRM system is hosted by Electrum, but rather that this interface abstracts the logic required to execute a set of predefined CRM queries, hence simplifying communication.
 
 			<hr>
@@ -277,15 +277,16 @@ The Electrum CRM Portal Interface describes a server interface against which cal
 			</a>
 
 			<br>
-			getPurchaseHistory Query purchase history
-POST /crmportal/v1/purchaseHistory
+			<p>getPurchaseHistory Query purchase history
+POST /crmportal/v2/purchaseHistory
 Lookup a customer&#x27;s purchase history for a specified service.
 Security  httpBasic  Request Content-Type: application/json
 Parameters  Name Located in Required Description Default Schema
  body body yes A JSON body containing request parameters.  PurchaseHistoryRequest</p>
 
 <p>Response Content-Type: application/json
-   Status Code Reason Response Model     200 An array of purchases matching the query. PurchaseHistoryResponse
+   Status Code Reason Response Model     200 An array of purchases matching the query. PurchaseHistoryResponse</p>
+
 
 			<hr>
 			
@@ -295,7 +296,8 @@ Parameters  Name Located in Required Description Default Schema
 
 			<br>
 			This page describes changes to the CRM Portal Interface implemented for different releases of the interface.
-v1.0.1 Released 2 February 2017
+v2.0.0 Released 19 March 2018
+ Not backwards compatible. Added BaseResponse class. PrepaidElectricityPurchase class now extends the BaseResponse class. Added a AirtimeDataPurchase class that extends the BaseResponse class. Added multiple tender support.  v1.0.1 Released 2 February 2017
  PurchaseHistoryRequest JSON body is required in post  v1.0.0 Released 31 January 2017
  Resource specification for customer purchase history queries Data model specific to prepaid electricity purchases
 
@@ -308,14 +310,14 @@ v1.0.1 Released 2 February 2017
 			<br>
 			The swagger (Open API) definition of the interface specification can be found here, as well as below.
 Many tools are available for processing swagger files, and using a code generation tool to create a boilerplate client or server can be an excellent starting point for development. We highly recommend looking at swagger-codegen for a generator in your preferred language when starting out.
-Swagger definition &mdash; swagger: &quot;2.0&quot; info: description: &quot;The Electrum CRM Portal Interface describes a server interface against\ \ which calls can be made to retrieve information from a backend CRM system.
+Swagger definition &mdash; swagger: &quot;2.0&quot; info: description: &quot;The Electrum CRM Portal Interface describes a server interface against\ \ which calls can be made to retrieve information from a backend\ \ CRM system.
 
 			<hr>
 			
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2017 Released under the Apache 2.0 license
+				&copy; 2018 Released under the Apache 2.0 license
 				
 			</aside>
 		</div>
