@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <title>Swagger - CRM Portal Interface</title>
-    <meta name="generator" content="Hugo 0.18.1" />
+    <meta name="generator" content="Hugo 0.31.1" />
 
     
     <link rel="canonical" href="https://electrumpayments.github.io/crmportal-interface-docs/specification/swagger/">
@@ -269,14 +269,20 @@
 swagger: &quot;2.0&quot;
 info:
   description: &quot;The Electrum CRM Portal Interface describes a server interface against\
-    \ which calls can be made to retrieve information from a backend CRM system. The\
-    \ intended use cases include the lookup of customer-linked account or purchase\
-    \ history data from a bank or retailer's CRM environment. It is not intended that\
-    \ the CRM system is hosted by Electrum, but rather that this interface abstracts\
-    \ the logic required to execute a set of predefined CRM queries, hence simplifying\
-    \ communication. Access to the CRM system itself will be handled independently\
-    \ through an appropriate client implementation.&quot;
-  version: &quot;1.0.1&quot;
+    \ which calls can be
+                  made to retrieve information from a backend\
+    \ CRM system. The intended use cases include the lookup of
+                 \
+    \ customer-linked account or purchase history data from a bank or retailer's CRM\
+    \ environment. It is not
+                  intended that the CRM system is hosted\
+    \ by Electrum, but rather that this interface abstracts the logic
+          \
+    \        required to execute a set of predefined CRM queries, hence simplifying\
+    \ communication. Access to the
+                  CRM system itself will be handled\
+    \ independently through an appropriate client implementation.&quot;
+  version: &quot;2.0.0&quot;
   title: &quot;CRM Portal Interface&quot;
   contact:
     name: &quot;Electrum API&quot;
@@ -286,11 +292,11 @@ info:
     name: &quot;Apache 2.0&quot;
     url: &quot;http://www.apache.org/licenses/LICENSE-2.0.html&quot;
 host: &quot;sandbox.electrum.io&quot;
-basePath: &quot;/crmportal/v1&quot;
+basePath: &quot;/crmportal/v2&quot;
 schemes:
 - &quot;https&quot;
 paths:
-  /crmportal/v1/purchaseHistory:
+  /crmportal/v2/purchaseHistory:
     post:
       summary: &quot;Query purchase history&quot;
       description: &quot;Lookup a customer's purchase history for a specified service.&quot;
@@ -321,6 +327,82 @@ securityDefinitions:
       \ password has been agreed with Electrum.&quot;
     type: &quot;basic&quot;
 definitions:
+  AirtimeDataPurchase:
+    type: &quot;object&quot;
+    required:
+    - &quot;purchaseDate&quot;
+    - &quot;requestAmount&quot;
+    - &quot;serviceProvider&quot;
+    - &quot;status&quot;
+    - &quot;transactionId&quot;
+    properties:
+      transactionId:
+        type: &quot;string&quot;
+        description: &quot;Optional identifier for the transaction&quot;
+      msisdn:
+        type: &quot;string&quot;
+        description: &quot;The mobile number of the customer.&quot;
+      requestAmount:
+        type: &quot;integer&quot;
+        format: &quot;int64&quot;
+        description: &quot;Amount in minor denomination, e.g. R799.95 is encoded as 79995&quot;
+      serviceProvider:
+        type: &quot;string&quot;
+        description: &quot;The provider of the service.&quot;
+      purchaseDate:
+        type: &quot;string&quot;
+        format: &quot;date-time&quot;
+        description: &quot;Date of the purchase. The format shall be as defined for date-time\
+          \ in [RFC 3339 section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).\
+          \ It is recommended that the optional time-secfrac be included up to millisecond\
+          \ precision&quot;
+      status:
+        type: &quot;string&quot;
+        description: &quot;The status of the transaction.&quot;
+        enum:
+        - &quot;PENDING&quot;
+        - &quot;SUCCESSFUL&quot;
+        - &quot;FAILED&quot;
+      smartShopperCardTenders:
+        type: &quot;array&quot;
+        description: &quot;An array of smart shopper card tenders.&quot;
+        items:
+          $ref: &quot;#/definitions/SmartShopperCardTender&quot;
+      paymentCardTenders:
+        type: &quot;array&quot;
+        description: &quot;An array of credit card tenders.&quot;
+        items:
+          $ref: &quot;#/definitions/PaymentCardTender&quot;
+      productDescription:
+        type: &quot;string&quot;
+        readOnly: true
+    description: &quot;Details of a airtime/data purchase&quot;
+  PaymentCardTender:
+    type: &quot;object&quot;
+    required:
+    - &quot;amount&quot;
+    - &quot;cardType&quot;
+    - &quot;maskedCardNumber&quot;
+    - &quot;status&quot;
+    properties:
+      maskedCardNumber:
+        type: &quot;string&quot;
+        description: &quot;A masked version of the card used to make the purchase.&quot;
+      cardType:
+        type: &quot;string&quot;
+        description: &quot;The type of credit card used to make the purchase.&quot;
+      amount:
+        type: &quot;integer&quot;
+        format: &quot;int64&quot;
+        description: &quot;Amount in minor denomination, e.g. R799.95 is encoded as 79995&quot;
+      status:
+        type: &quot;string&quot;
+        description: &quot;The status of the tender.&quot;
+        enum:
+        - &quot;PENDING&quot;
+        - &quot;SUCCESSFUL&quot;
+        - &quot;FAILED&quot;
+    description: &quot;A credit card tender.&quot;
   PrepaidElectricityPurchase:
     type: &quot;object&quot;
     required:
@@ -328,19 +410,52 @@ definitions:
     - &quot;meterId&quot;
     - &quot;purchaseDate&quot;
     - &quot;requestAmount&quot;
+    - &quot;serviceProvider&quot;
     - &quot;status&quot;
     - &quot;tenderAmount&quot;
+    - &quot;transactionId&quot;
     properties:
-      meterId:
+      transactionId:
         type: &quot;string&quot;
-      serviceProvider:
+        description: &quot;Optional identifier for the transaction&quot;
+      msisdn:
         type: &quot;string&quot;
-      customerName:
-        type: &quot;string&quot;
+        description: &quot;The mobile number of the customer.&quot;
       requestAmount:
         type: &quot;integer&quot;
         format: &quot;int64&quot;
         description: &quot;Amount in minor denomination, e.g. R799.95 is encoded as 79995&quot;
+      serviceProvider:
+        type: &quot;string&quot;
+        description: &quot;The provider of the service.&quot;
+      purchaseDate:
+        type: &quot;string&quot;
+        format: &quot;date-time&quot;
+        description: &quot;Date of the purchase. The format shall be as defined for date-time\
+          \ in [RFC 3339 section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).\
+          \ It is recommended that the optional time-secfrac be included up to millisecond\
+          \ precision&quot;
+      status:
+        type: &quot;string&quot;
+        description: &quot;The status of the transaction.&quot;
+        enum:
+        - &quot;PENDING&quot;
+        - &quot;SUCCESSFUL&quot;
+        - &quot;FAILED&quot;
+      smartShopperCardTenders:
+        type: &quot;array&quot;
+        description: &quot;An array of smart shopper card tenders.&quot;
+        items:
+          $ref: &quot;#/definitions/SmartShopperCardTender&quot;
+      paymentCardTenders:
+        type: &quot;array&quot;
+        description: &quot;An array of credit card tenders.&quot;
+        items:
+          $ref: &quot;#/definitions/PaymentCardTender&quot;
+      meterId:
+        type: &quot;string&quot;
+      customerName:
+        type: &quot;string&quot;
       tenderAmount:
         type: &quot;integer&quot;
         format: &quot;int64&quot;
@@ -355,15 +470,6 @@ definitions:
         type: &quot;string&quot;
       freeToken:
         type: &quot;string&quot;
-      purchaseDate:
-        type: &quot;string&quot;
-        format: &quot;date-time&quot;
-      status:
-        type: &quot;string&quot;
-        enum:
-        - &quot;PENDING&quot;
-        - &quot;SUCCESSFUL&quot;
-        - &quot;FAILED&quot;
       tariffBreakdown:
         type: &quot;string&quot;
       tariffTotal:
@@ -382,7 +488,7 @@ definitions:
         type: &quot;integer&quot;
         format: &quot;int64&quot;
         description: &quot;Amount in minor denomination, e.g. R799.95 is encoded as 79995&quot;
-    description: &quot;Details of a purchase&quot;
+    description: &quot;Details of a prepaid electricity purchase&quot;
   PurchaseHistoryRequest:
     type: &quot;object&quot;
     required:
@@ -395,6 +501,8 @@ definitions:
         description: &quot;The service for which information is requested (e.g. electricity).&quot;
         enum:
         - &quot;ELECTRICITY&quot;
+        - &quot;AIRTIME&quot;
+        - &quot;DATA&quot;
       customerId:
         type: &quot;string&quot;
         description: &quot;ID of the customer for which information is requested. The type\
@@ -404,6 +512,7 @@ definitions:
         description: &quot;Type of ID used to specify the customer (eg. loyalty card number).&quot;
         enum:
         - &quot;LOYALTY_CARD&quot;
+        - &quot;CREDIT_CARD&quot;
     description: &quot;Object containing request parameters.&quot;
   PurchaseHistoryResponse:
     type: &quot;object&quot;
@@ -413,12 +522,39 @@ definitions:
         description: &quot;An array of prepaid electricity purchases.&quot;
         items:
           $ref: &quot;#/definitions/PrepaidElectricityPurchase&quot;
+      airtimeDataPurchaseHistory:
+        type: &quot;array&quot;
+        description: &quot;An array of airtime/data purchases.&quot;
+        items:
+          $ref: &quot;#/definitions/AirtimeDataPurchase&quot;
+  SmartShopperCardTender:
+    type: &quot;object&quot;
+    required:
+    - &quot;amount&quot;
+    - &quot;smartShopperAccountNumber&quot;
+    - &quot;status&quot;
+    properties:
+      smartShopperAccountNumber:
+        type: &quot;string&quot;
+        description: &quot;The number on the smart shopper card.&quot;
+      amount:
+        type: &quot;integer&quot;
+        format: &quot;int64&quot;
+        description: &quot;Amount in minor denomination, e.g. R799.95 is encoded as 79995&quot;
+      status:
+        type: &quot;string&quot;
+        description: &quot;The status of the tender.&quot;
+        enum:
+        - &quot;PENDING&quot;
+        - &quot;SUCCESSFUL&quot;
+        - &quot;FAILED&quot;
+    description: &quot;A smart shopper card tender.&quot;
 </code></pre>
 
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2017 Released under the Apache 2.0 license
+				&copy; 2018 Released under the Apache 2.0 license
 				
 			</aside>
 

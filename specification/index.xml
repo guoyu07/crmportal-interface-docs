@@ -2,12 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Specifications on CRM Portal Interface</title>
-    <link>https://electrumpayments.github.io/crmportal-interface-docs/specification/index.xml</link>
+    <link>https://electrumpayments.github.io/crmportal-interface-docs/specification/</link>
     <description>Recent content in Specifications on CRM Portal Interface</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the Apache 2.0 license</copyright>
-    <atom:link href="https://electrumpayments.github.io/crmportal-interface-docs/specification/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://electrumpayments.github.io/crmportal-interface-docs/specification/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Definitions</title>
@@ -15,212 +17,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://electrumpayments.github.io/crmportal-interface-docs/specification/definitions/</guid>
-      <description>
-
-&lt;h2 id=&#34;prepaidelectricitypurchase&#34;&gt;PrepaidElectricityPurchase&lt;/h2&gt;
-
-&lt;p&gt;Details of a purchase
-&lt;table border=&#34;1&#34;&gt;
-&lt;tr&gt;
-    &lt;th&gt;Name&lt;/th&gt;
-    &lt;th&gt;Type&lt;/th&gt;
-    &lt;th&gt;Required&lt;/th&gt;
-    &lt;th&gt;Default&lt;/th&gt;
-    &lt;th&gt;Restrictions&lt;/th&gt;
-    &lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;meterId&lt;/td&gt;
-    &lt;td&gt;string&lt;/td&gt;
-    &lt;td&gt;required&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;serviceProvider&lt;/td&gt;
-    &lt;td&gt;string&lt;/td&gt;
-    &lt;td&gt;optional&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;customerName&lt;/td&gt;
-    &lt;td&gt;string&lt;/td&gt;
-    &lt;td&gt;required&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;requestAmount&lt;/td&gt;
-    &lt;td&gt;integer&lt;/td&gt;
-    &lt;td&gt;required&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;format:&lt;i&gt;int64&lt;/i&gt;&lt;br/&gt;&lt;/td&gt;
-    &lt;td&gt;Amount in minor denomination, e.g. R799.95 is encoded as 79995&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;tenderAmount&lt;/td&gt;
-    &lt;td&gt;integer&lt;/td&gt;
-    &lt;td&gt;required&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;format:&lt;i&gt;int64&lt;/i&gt;&lt;br/&gt;&lt;/td&gt;
-    &lt;td&gt;Amount in minor denomination, e.g. R799.95 is encoded as 79995&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;saleUnits&lt;/td&gt;
-    &lt;td&gt;number&lt;/td&gt;
-    &lt;td&gt;optional&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;format:&lt;i&gt;double&lt;/i&gt;&lt;br/&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;freeUnits&lt;/td&gt;
-    &lt;td&gt;number&lt;/td&gt;
-    &lt;td&gt;optional&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;format:&lt;i&gt;double&lt;/i&gt;&lt;br/&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;saleToken&lt;/td&gt;
-    &lt;td&gt;string&lt;/td&gt;
-    &lt;td&gt;optional&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;freeToken&lt;/td&gt;
-    &lt;td&gt;string&lt;/td&gt;
-    &lt;td&gt;optional&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;purchaseDate&lt;/td&gt;
-    &lt;td&gt;string&lt;/td&gt;
-    &lt;td&gt;required&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;format:&lt;i&gt;date-time&lt;/i&gt;&lt;br/&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;status&lt;/td&gt;
-    &lt;td&gt;string&lt;/td&gt;
-    &lt;td&gt;required&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;i&gt;[PENDING, SUCCESSFUL, FAILED]&lt;/i&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;tariffBreakdown&lt;/td&gt;
-    &lt;td&gt;string&lt;/td&gt;
-    &lt;td&gt;optional&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;tariffTotal&lt;/td&gt;
-    &lt;td&gt;integer&lt;/td&gt;
-    &lt;td&gt;optional&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;format:&lt;i&gt;int64&lt;/i&gt;&lt;br/&gt;&lt;/td&gt;
-    &lt;td&gt;Amount in minor denomination, e.g. R799.95 is encoded as 79995&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;vat&lt;/td&gt;
-    &lt;td&gt;integer&lt;/td&gt;
-    &lt;td&gt;optional&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;format:&lt;i&gt;int64&lt;/i&gt;&lt;br/&gt;&lt;/td&gt;
-    &lt;td&gt;Amount in minor denomination, e.g. R799.95 is encoded as 79995&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;debtRecovery&lt;/td&gt;
-    &lt;td&gt;integer&lt;/td&gt;
-    &lt;td&gt;optional&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;format:&lt;i&gt;int64&lt;/i&gt;&lt;br/&gt;&lt;/td&gt;
-    &lt;td&gt;Amount in minor denomination, e.g. R799.95 is encoded as 79995&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;serviceCharge&lt;/td&gt;
-    &lt;td&gt;integer&lt;/td&gt;
-    &lt;td&gt;optional&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;format:&lt;i&gt;int64&lt;/i&gt;&lt;br/&gt;&lt;/td&gt;
-    &lt;td&gt;Amount in minor denomination, e.g. R799.95 is encoded as 79995&lt;/td&gt;
-&lt;/tr&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/table&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;purchasehistoryrequest&#34;&gt;PurchaseHistoryRequest&lt;/h2&gt;
-
-&lt;p&gt;Object containing request parameters.
-&lt;table border=&#34;1&#34;&gt;
-&lt;tr&gt;
-    &lt;th&gt;Name&lt;/th&gt;
-    &lt;th&gt;Type&lt;/th&gt;
-    &lt;th&gt;Required&lt;/th&gt;
-    &lt;th&gt;Default&lt;/th&gt;
-    &lt;th&gt;Restrictions&lt;/th&gt;
-    &lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;service&lt;/td&gt;
-    &lt;td&gt;string&lt;/td&gt;
-    &lt;td&gt;required&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;i&gt;[ELECTRICITY]&lt;/i&gt;&lt;/td&gt;
-    &lt;td&gt;The service for which information is requested (e.g. electricity).&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;customerId&lt;/td&gt;
-    &lt;td&gt;string&lt;/td&gt;
-    &lt;td&gt;required&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;ID of the customer for which information is requested. The type of ID is supplied by the &lt;code&gt;idType&lt;/code&gt; parameter&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;idType&lt;/td&gt;
-    &lt;td&gt;string&lt;/td&gt;
-    &lt;td&gt;required&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;i&gt;[LOYALTY_CARD]&lt;/i&gt;&lt;/td&gt;
-    &lt;td&gt;Type of ID used to specify the customer (eg. loyalty card number).&lt;/td&gt;
-&lt;/tr&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/table&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;purchasehistoryresponse&#34;&gt;PurchaseHistoryResponse&lt;/h2&gt;
-
-&lt;table border=&#34;1&#34;&gt;
-&lt;tr&gt;
-    &lt;th&gt;Name&lt;/th&gt;
-    &lt;th&gt;Type&lt;/th&gt;
-    &lt;th&gt;Required&lt;/th&gt;
-    &lt;th&gt;Default&lt;/th&gt;
-    &lt;th&gt;Restrictions&lt;/th&gt;
-    &lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;prepaidElectricityPurchaseHistory&lt;/td&gt;
-    &lt;td&gt;array[[PrepaidElectricityPurchase](#prepaidelectricitypurchase)]&lt;/td&gt;
-    &lt;td&gt;optional&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;An array of prepaid electricity purchases.&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;/table&gt;
-</description>
+      <description>AirtimeDataPurchase Details of a airtime/data purchase  Name Type Required Default Restrictions Description   transactionId string required   Optional identifier for the transaction   msisdn string optional   The mobile number of the customer.   requestAmount integer required  format:int64 Amount in minor denomination, e.g. R799.95 is encoded as 79995   serviceProvider string required   The provider of the service.   purchaseDate string required  format:date-time Date of the purchase.</description>
     </item>
     
     <item>
@@ -229,34 +26,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://electrumpayments.github.io/crmportal-interface-docs/specification/introduction/</guid>
-      <description>
-
-&lt;p&gt;&lt;strong&gt;Version&lt;/strong&gt; 1.0.1&lt;/p&gt;
-
-&lt;p&gt;The Electrum CRM Portal Interface describes a server interface against which calls can be made to retrieve information from a backend CRM system. The intended use cases include the lookup of customer-linked account or purchase history data from a bank or retailer&amp;#x27;s CRM environment. It is not intended that the CRM system is hosted by Electrum, but rather that this interface abstracts the logic required to execute a set of predefined CRM queries, hence simplifying communication. Access to the CRM system itself will be handled independently through an appropriate client implementation.&lt;/p&gt;
-
-&lt;p&gt;Email &lt;a href=&#34;mailto:api@electrum.co.za&#34;&gt;&lt;strong&gt;Electrum API&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Licensed under &lt;a href=&#34;http://www.apache.org/licenses/LICENSE-2.0.html&#34;&gt;&lt;strong&gt;Apache 2.0&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;security-definitions&#34;&gt;Security Definitions&lt;/h1&gt;
-
-&lt;h3 id=&#34;httpbasic&#34;&gt;httpBasic&lt;/h3&gt;
-
-&lt;table&gt;
-    &lt;tr&gt;
-        &lt;th&gt;type&lt;/th&gt;
-        &lt;td colspan=&#34;2&#34;&gt;basic&lt;/td&gt;
-    &lt;/tr&gt;
-
-        &lt;tr&gt;
-            &lt;th&gt;description&lt;/th&gt;
-            &lt;td colspan=&#34;2&#34;&gt;All requests require HTTP basic authentication, where user name equals the value used in
-                    MessageId.institutionId and password has been agreed with Electrum.&lt;/td&gt;
-        &lt;/tr&gt;
-
-&lt;/table&gt;
-</description>
+      <description>Version 2.0.0
+The Electrum CRM Portal Interface describes a server interface against which calls can be made to retrieve information from a backend CRM system. The intended use cases include the lookup of customer-linked account or purchase history data from a bank or retailer&amp;#x27;s CRM environment. It is not intended that the CRM system is hosted by Electrum, but rather that this interface abstracts the logic required to execute a set of predefined CRM queries, hence simplifying communication.</description>
     </item>
     
     <item>
@@ -265,70 +36,15 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://electrumpayments.github.io/crmportal-interface-docs/specification/operations/</guid>
-      <description>
+      <description> getPurchaseHistory Query purchase history
+POST /crmportal/v2/purchaseHistory
+Lookup a customer&amp;#x27;s purchase history for a specified service.
+Security  httpBasic  Request Content-Type: application/json
+Parameters  Name Located in Required Description Default Schema 
+ body body yes A JSON body containing request parameters.  PurchaseHistoryRequest 
 
-&lt;h2 id=&#34;getpurchasehistory&#34;&gt;getPurchaseHistory&lt;/h2&gt;
-
-&lt;p&gt;Query purchase history&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;POST /crmportal/v1/purchaseHistory&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Lookup a customer&amp;#x27;s purchase history for a specified service.&lt;/p&gt;
-
-&lt;h4 id=&#34;security&#34;&gt;Security&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;httpBasic&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;request&#34;&gt;Request&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Content-Type:&lt;/strong&gt; application/json&lt;/p&gt;
-
-&lt;p&gt;Parameters
-&lt;table border=&#34;1&#34;&gt;
-    &lt;tr&gt;
-        &lt;th&gt;Name&lt;/th&gt;
-        &lt;th&gt;Located in&lt;/th&gt;
-        &lt;th&gt;Required&lt;/th&gt;
-        &lt;th&gt;Description&lt;/th&gt;
-        &lt;th&gt;Default&lt;/th&gt;
-        &lt;th&gt;Schema&lt;/th&gt;
-    &lt;/tr&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;tr&gt;
-    &lt;th&gt;body&lt;/th&gt;
-    &lt;td&gt;body&lt;/td&gt;
-    &lt;td&gt;yes&lt;/td&gt;
-    &lt;td&gt;A JSON body containing request parameters.&lt;/td&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;a href=&#34;https://electrumpayments.github.io/crmportal-interface-docs/specification/definitions/#purchasehistoryrequest&#34;&gt;PurchaseHistoryRequest&lt;/a&gt;
-&lt;/tr&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/table&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;response&#34;&gt;Response&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Content-Type:&lt;/strong&gt; application/json&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Status Code&lt;/th&gt;
-&lt;th&gt;Reason&lt;/th&gt;
-&lt;th&gt;Response Model&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;200&lt;/td&gt;
-&lt;td&gt;An array of purchases matching the query.&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://electrumpayments.github.io/crmportal-interface-docs/specification/definitions/#purchasehistoryresponse&#34;&gt;PurchaseHistoryResponse&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-</description>
+Response Content-Type: application/json
+   Status Code Reason Response Model     200 An array of purchases matching the query. PurchaseHistoryResponse    </description>
     </item>
     
     <item>
@@ -337,27 +53,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://electrumpayments.github.io/crmportal-interface-docs/specification/release-notes/</guid>
-      <description>
-
-&lt;p&gt;This page describes changes to the CRM Portal Interface implemented for different releases of the interface.&lt;/p&gt;
-
-&lt;h2 id=&#34;v1-0-1&#34;&gt;v1.0.1&lt;/h2&gt;
-
-&lt;p&gt;Released 2 February 2017&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;PurchaseHistoryRequest JSON body is required in post&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;v1-0-0&#34;&gt;v1.0.0&lt;/h2&gt;
-
-&lt;p&gt;Released 31 January 2017&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Resource specification for customer purchase history queries&lt;/li&gt;
-&lt;li&gt;Data model specific to prepaid electricity purchases&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description> This page describes changes to the CRM Portal Interface implemented for different releases of the interface.
+v2.0.0 Released 19 March 2018
+ Not backwards compatible. Added BaseResponse class. PrepaidElectricityPurchase class now extends the BaseResponse class. Added a AirtimeDataPurchase class that extends the BaseResponse class. Added multiple tender support.  v1.0.1 Released 2 February 2017
+ PurchaseHistoryRequest JSON body is required in post  v1.0.0 Released 31 January 2017
+ Resource specification for customer purchase history queries Data model specific to prepaid electricity purchases  </description>
     </item>
     
     <item>
@@ -366,164 +66,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://electrumpayments.github.io/crmportal-interface-docs/specification/swagger/</guid>
-      <description>
-
-&lt;p&gt;The &lt;a href=&#34;http://swagger.io&#34;&gt;swagger (Open API)&lt;/a&gt; definition of the interface specification can be found &lt;a href=&#34;https://electrumpayments.github.io/crmportal-interface-docs/specification/swagger/swagger.yaml&#34;&gt;here&lt;/a&gt;, as well as below.&lt;/p&gt;
-
-&lt;p&gt;Many tools are available for processing swagger files, and using a code generation tool to create a boilerplate client or server can be an excellent starting point for development. We highly recommend looking at &lt;a href=&#34;https://github.com/swagger-api/swagger-codegen&#34;&gt;swagger-codegen&lt;/a&gt; for a generator in your preferred language when starting out.&lt;/p&gt;
-
-&lt;h3 id=&#34;swagger-definition&#34;&gt;Swagger definition&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;---
-swagger: &amp;quot;2.0&amp;quot;
-info:
-  description: &amp;quot;The Electrum CRM Portal Interface describes a server interface against\
-    \ which calls can be made to retrieve information from a backend CRM system. The\
-    \ intended use cases include the lookup of customer-linked account or purchase\
-    \ history data from a bank or retailer&#39;s CRM environment. It is not intended that\
-    \ the CRM system is hosted by Electrum, but rather that this interface abstracts\
-    \ the logic required to execute a set of predefined CRM queries, hence simplifying\
-    \ communication. Access to the CRM system itself will be handled independently\
-    \ through an appropriate client implementation.&amp;quot;
-  version: &amp;quot;1.0.1&amp;quot;
-  title: &amp;quot;CRM Portal Interface&amp;quot;
-  contact:
-    name: &amp;quot;Electrum API&amp;quot;
-    url: &amp;quot;http://io.electrum&amp;quot;
-    email: &amp;quot;api@electrum.co.za&amp;quot;
-  license:
-    name: &amp;quot;Apache 2.0&amp;quot;
-    url: &amp;quot;http://www.apache.org/licenses/LICENSE-2.0.html&amp;quot;
-host: &amp;quot;sandbox.electrum.io&amp;quot;
-basePath: &amp;quot;/crmportal/v1&amp;quot;
-schemes:
-- &amp;quot;https&amp;quot;
-paths:
-  /crmportal/v1/purchaseHistory:
-    post:
-      summary: &amp;quot;Query purchase history&amp;quot;
-      description: &amp;quot;Lookup a customer&#39;s purchase history for a specified service.&amp;quot;
-      operationId: &amp;quot;getPurchaseHistory&amp;quot;
-      consumes:
-      - &amp;quot;application/json&amp;quot;
-      produces:
-      - &amp;quot;application/json&amp;quot;
-      parameters:
-      - in: &amp;quot;body&amp;quot;
-        name: &amp;quot;body&amp;quot;
-        description: &amp;quot;A JSON body containing request parameters.&amp;quot;
-        required: true
-        schema:
-          $ref: &amp;quot;#/definitions/PurchaseHistoryRequest&amp;quot;
-      responses:
-        200:
-          description: &amp;quot;An array of purchases matching the query.&amp;quot;
-          schema:
-            $ref: &amp;quot;#/definitions/PurchaseHistoryResponse&amp;quot;
-      security:
-      - httpBasic: []
-securityDefinitions:
-  httpBasic:
-    description: &amp;quot;All requests require HTTP basic authentication, where user name\
-      \ equals the value used in
-                    MessageId.institutionId and\
-      \ password has been agreed with Electrum.&amp;quot;
-    type: &amp;quot;basic&amp;quot;
-definitions:
-  PrepaidElectricityPurchase:
-    type: &amp;quot;object&amp;quot;
-    required:
-    - &amp;quot;customerName&amp;quot;
-    - &amp;quot;meterId&amp;quot;
-    - &amp;quot;purchaseDate&amp;quot;
-    - &amp;quot;requestAmount&amp;quot;
-    - &amp;quot;status&amp;quot;
-    - &amp;quot;tenderAmount&amp;quot;
-    properties:
-      meterId:
-        type: &amp;quot;string&amp;quot;
-      serviceProvider:
-        type: &amp;quot;string&amp;quot;
-      customerName:
-        type: &amp;quot;string&amp;quot;
-      requestAmount:
-        type: &amp;quot;integer&amp;quot;
-        format: &amp;quot;int64&amp;quot;
-        description: &amp;quot;Amount in minor denomination, e.g. R799.95 is encoded as 79995&amp;quot;
-      tenderAmount:
-        type: &amp;quot;integer&amp;quot;
-        format: &amp;quot;int64&amp;quot;
-        description: &amp;quot;Amount in minor denomination, e.g. R799.95 is encoded as 79995&amp;quot;
-      saleUnits:
-        type: &amp;quot;number&amp;quot;
-        format: &amp;quot;double&amp;quot;
-      freeUnits:
-        type: &amp;quot;number&amp;quot;
-        format: &amp;quot;double&amp;quot;
-      saleToken:
-        type: &amp;quot;string&amp;quot;
-      freeToken:
-        type: &amp;quot;string&amp;quot;
-      purchaseDate:
-        type: &amp;quot;string&amp;quot;
-        format: &amp;quot;date-time&amp;quot;
-      status:
-        type: &amp;quot;string&amp;quot;
-        enum:
-        - &amp;quot;PENDING&amp;quot;
-        - &amp;quot;SUCCESSFUL&amp;quot;
-        - &amp;quot;FAILED&amp;quot;
-      tariffBreakdown:
-        type: &amp;quot;string&amp;quot;
-      tariffTotal:
-        type: &amp;quot;integer&amp;quot;
-        format: &amp;quot;int64&amp;quot;
-        description: &amp;quot;Amount in minor denomination, e.g. R799.95 is encoded as 79995&amp;quot;
-      vat:
-        type: &amp;quot;integer&amp;quot;
-        format: &amp;quot;int64&amp;quot;
-        description: &amp;quot;Amount in minor denomination, e.g. R799.95 is encoded as 79995&amp;quot;
-      debtRecovery:
-        type: &amp;quot;integer&amp;quot;
-        format: &amp;quot;int64&amp;quot;
-        description: &amp;quot;Amount in minor denomination, e.g. R799.95 is encoded as 79995&amp;quot;
-      serviceCharge:
-        type: &amp;quot;integer&amp;quot;
-        format: &amp;quot;int64&amp;quot;
-        description: &amp;quot;Amount in minor denomination, e.g. R799.95 is encoded as 79995&amp;quot;
-    description: &amp;quot;Details of a purchase&amp;quot;
-  PurchaseHistoryRequest:
-    type: &amp;quot;object&amp;quot;
-    required:
-    - &amp;quot;customerId&amp;quot;
-    - &amp;quot;idType&amp;quot;
-    - &amp;quot;service&amp;quot;
-    properties:
-      service:
-        type: &amp;quot;string&amp;quot;
-        description: &amp;quot;The service for which information is requested (e.g. electricity).&amp;quot;
-        enum:
-        - &amp;quot;ELECTRICITY&amp;quot;
-      customerId:
-        type: &amp;quot;string&amp;quot;
-        description: &amp;quot;ID of the customer for which information is requested. The type\
-          \ of ID is supplied by the `idType` parameter&amp;quot;
-      idType:
-        type: &amp;quot;string&amp;quot;
-        description: &amp;quot;Type of ID used to specify the customer (eg. loyalty card number).&amp;quot;
-        enum:
-        - &amp;quot;LOYALTY_CARD&amp;quot;
-    description: &amp;quot;Object containing request parameters.&amp;quot;
-  PurchaseHistoryResponse:
-    type: &amp;quot;object&amp;quot;
-    properties:
-      prepaidElectricityPurchaseHistory:
-        type: &amp;quot;array&amp;quot;
-        description: &amp;quot;An array of prepaid electricity purchases.&amp;quot;
-        items:
-          $ref: &amp;quot;#/definitions/PrepaidElectricityPurchase&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>The swagger (Open API) definition of the interface specification can be found here, as well as below.
+Many tools are available for processing swagger files, and using a code generation tool to create a boilerplate client or server can be an excellent starting point for development. We highly recommend looking at swagger-codegen for a generator in your preferred language when starting out.
+Swagger definition --- swagger: &amp;quot;2.0&amp;quot; info: description: &amp;quot;The Electrum CRM Portal Interface describes a server interface against\ \ which calls can be made to retrieve information from a backend\ \ CRM system.</description>
     </item>
     
   </channel>

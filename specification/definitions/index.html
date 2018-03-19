@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <title>Definitions - CRM Portal Interface</title>
-    <meta name="generator" content="Hugo 0.18.1" />
+    <meta name="generator" content="Hugo 0.31.1" />
 
     
     <link rel="canonical" href="https://electrumpayments.github.io/crmportal-interface-docs/specification/definitions/">
@@ -259,9 +259,9 @@
 
 			
 
-<h2 id="prepaidelectricitypurchase">PrepaidElectricityPurchase</h2>
+<h2 id="airtimedatapurchase">AirtimeDataPurchase</h2>
 
-<p>Details of a purchase
+<p>Details of a airtime/data purchase
 <table border="1">
 <tr>
     <th>Name</th>
@@ -272,17 +272,207 @@
     <th>Description</th>
 </tr>
 <tr>
-    <td>meterId</td>
+    <td>transactionId</td>
     <td>string</td>
     <td>required</td>
     <td></td>
     <td></td>
+    <td>Optional identifier for the transaction</td>
+</tr>
+<tr>
+    <td>msisdn</td>
+    <td>string</td>
+    <td>optional</td>
     <td></td>
+    <td></td>
+    <td>The mobile number of the customer.</td>
+</tr>
+<tr>
+    <td>requestAmount</td>
+    <td>integer</td>
+    <td>required</td>
+    <td></td>
+    <td>format:<i>int64</i><br/></td>
+    <td>Amount in minor denomination, e.g. R799.95 is encoded as 79995</td>
 </tr>
 <tr>
     <td>serviceProvider</td>
     <td>string</td>
+    <td>required</td>
+    <td></td>
+    <td></td>
+    <td>The provider of the service.</td>
+</tr>
+<tr>
+    <td>purchaseDate</td>
+    <td>string</td>
+    <td>required</td>
+    <td></td>
+    <td>format:<i>date-time</i><br/></td>
+    <td>Date of the purchase. The format shall be as defined for date-time in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6</a>. It is recommended that the optional time-secfrac be included up to millisecond precision</td>
+</tr>
+<tr>
+    <td>status</td>
+    <td>string</td>
+    <td>required</td>
+    <td></td>
+    <td><i>[PENDING, SUCCESSFUL, FAILED]</i></td>
+    <td>The status of the transaction.</td>
+</tr>
+<tr>
+    <td>smartShopperCardTenders</td>
+    <td>array[<a href="#smartshoppercardtender">SmartShopperCardTender</a>]</td>
     <td>optional</td>
+    <td></td>
+    <td></td>
+    <td>An array of smart shopper card tenders.</td>
+</tr>
+<tr>
+    <td>paymentCardTenders</td>
+    <td>array[<a href="#paymentcardtender">PaymentCardTender</a>]</td>
+    <td>optional</td>
+    <td></td>
+    <td></td>
+    <td>An array of credit card tenders.</td>
+</tr>
+<tr>
+    <td>productDescription</td>
+    <td>string</td>
+    <td>optional</td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr></p>
+
+<p></table></p>
+
+<h2 id="paymentcardtender">PaymentCardTender</h2>
+
+<p>A credit card tender.
+<table border="1">
+<tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Required</th>
+    <th>Default</th>
+    <th>Restrictions</th>
+    <th>Description</th>
+</tr>
+<tr>
+    <td>maskedCardNumber</td>
+    <td>string</td>
+    <td>required</td>
+    <td></td>
+    <td></td>
+    <td>A masked version of the card used to make the purchase.</td>
+</tr>
+<tr>
+    <td>cardType</td>
+    <td>string</td>
+    <td>required</td>
+    <td></td>
+    <td></td>
+    <td>The type of credit card used to make the purchase.</td>
+</tr>
+<tr>
+    <td>amount</td>
+    <td>integer</td>
+    <td>required</td>
+    <td></td>
+    <td>format:<i>int64</i><br/></td>
+    <td>Amount in minor denomination, e.g. R799.95 is encoded as 79995</td>
+</tr>
+<tr>
+    <td>status</td>
+    <td>string</td>
+    <td>required</td>
+    <td></td>
+    <td><i>[PENDING, SUCCESSFUL, FAILED]</i></td>
+    <td>The status of the tender.</td>
+</tr></p>
+
+<p></table></p>
+
+<h2 id="prepaidelectricitypurchase">PrepaidElectricityPurchase</h2>
+
+<p>Details of a prepaid electricity purchase
+<table border="1">
+<tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Required</th>
+    <th>Default</th>
+    <th>Restrictions</th>
+    <th>Description</th>
+</tr>
+<tr>
+    <td>transactionId</td>
+    <td>string</td>
+    <td>required</td>
+    <td></td>
+    <td></td>
+    <td>Optional identifier for the transaction</td>
+</tr>
+<tr>
+    <td>msisdn</td>
+    <td>string</td>
+    <td>optional</td>
+    <td></td>
+    <td></td>
+    <td>The mobile number of the customer.</td>
+</tr>
+<tr>
+    <td>requestAmount</td>
+    <td>integer</td>
+    <td>required</td>
+    <td></td>
+    <td>format:<i>int64</i><br/></td>
+    <td>Amount in minor denomination, e.g. R799.95 is encoded as 79995</td>
+</tr>
+<tr>
+    <td>serviceProvider</td>
+    <td>string</td>
+    <td>required</td>
+    <td></td>
+    <td></td>
+    <td>The provider of the service.</td>
+</tr>
+<tr>
+    <td>purchaseDate</td>
+    <td>string</td>
+    <td>required</td>
+    <td></td>
+    <td>format:<i>date-time</i><br/></td>
+    <td>Date of the purchase. The format shall be as defined for date-time in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6</a>. It is recommended that the optional time-secfrac be included up to millisecond precision</td>
+</tr>
+<tr>
+    <td>status</td>
+    <td>string</td>
+    <td>required</td>
+    <td></td>
+    <td><i>[PENDING, SUCCESSFUL, FAILED]</i></td>
+    <td>The status of the transaction.</td>
+</tr>
+<tr>
+    <td>smartShopperCardTenders</td>
+    <td>array[<a href="#smartshoppercardtender">SmartShopperCardTender</a>]</td>
+    <td>optional</td>
+    <td></td>
+    <td></td>
+    <td>An array of smart shopper card tenders.</td>
+</tr>
+<tr>
+    <td>paymentCardTenders</td>
+    <td>array[<a href="#paymentcardtender">PaymentCardTender</a>]</td>
+    <td>optional</td>
+    <td></td>
+    <td></td>
+    <td>An array of credit card tenders.</td>
+</tr>
+<tr>
+    <td>meterId</td>
+    <td>string</td>
+    <td>required</td>
     <td></td>
     <td></td>
     <td></td>
@@ -294,14 +484,6 @@
     <td></td>
     <td></td>
     <td></td>
-</tr>
-<tr>
-    <td>requestAmount</td>
-    <td>integer</td>
-    <td>required</td>
-    <td></td>
-    <td>format:<i>int64</i><br/></td>
-    <td>Amount in minor denomination, e.g. R799.95 is encoded as 79995</td>
 </tr>
 <tr>
     <td>tenderAmount</td>
@@ -341,22 +523,6 @@
     <td>optional</td>
     <td></td>
     <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td>purchaseDate</td>
-    <td>string</td>
-    <td>required</td>
-    <td></td>
-    <td>format:<i>date-time</i><br/></td>
-    <td></td>
-</tr>
-<tr>
-    <td>status</td>
-    <td>string</td>
-    <td>required</td>
-    <td></td>
-    <td><i>[PENDING, SUCCESSFUL, FAILED]</i></td>
     <td></td>
 </tr>
 <tr>
@@ -419,7 +585,7 @@
     <td>string</td>
     <td>required</td>
     <td></td>
-    <td><i>[ELECTRICITY]</i></td>
+    <td><i>[ELECTRICITY, AIRTIME, DATA]</i></td>
     <td>The service for which information is requested (e.g. electricity).</td>
 </tr>
 <tr>
@@ -435,7 +601,7 @@
     <td>string</td>
     <td>required</td>
     <td></td>
-    <td><i>[LOYALTY_CARD]</i></td>
+    <td><i>[LOYALTY_CARD, CREDIT_CARD]</i></td>
     <td>Type of ID used to specify the customer (eg. loyalty card number).</td>
 </tr></p>
 
@@ -460,13 +626,60 @@
     <td></td>
     <td>An array of prepaid electricity purchases.</td>
 </tr>
+<tr>
+    <td>airtimeDataPurchaseHistory</td>
+    <td>array[[AirtimeDataPurchase](#airtimedatapurchase)]</td>
+    <td>optional</td>
+    <td></td>
+    <td></td>
+    <td>An array of airtime/data purchases.</td>
+</tr>
 
 </table>
+
+<h2 id="smartshoppercardtender">SmartShopperCardTender</h2>
+
+<p>A smart shopper card tender.
+<table border="1">
+<tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Required</th>
+    <th>Default</th>
+    <th>Restrictions</th>
+    <th>Description</th>
+</tr>
+<tr>
+    <td>smartShopperAccountNumber</td>
+    <td>string</td>
+    <td>required</td>
+    <td></td>
+    <td></td>
+    <td>The number on the smart shopper card.</td>
+</tr>
+<tr>
+    <td>amount</td>
+    <td>integer</td>
+    <td>required</td>
+    <td></td>
+    <td>format:<i>int64</i><br/></td>
+    <td>Amount in minor denomination, e.g. R799.95 is encoded as 79995</td>
+</tr>
+<tr>
+    <td>status</td>
+    <td>string</td>
+    <td>required</td>
+    <td></td>
+    <td><i>[PENDING, SUCCESSFUL, FAILED]</i></td>
+    <td>The status of the tender.</td>
+</tr></p>
+
+<p></table></p>
 
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2017 Released under the Apache 2.0 license
+				&copy; 2018 Released under the Apache 2.0 license
 				
 			</aside>
 
