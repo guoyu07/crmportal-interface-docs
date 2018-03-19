@@ -49,6 +49,9 @@ paths:
       - httpBasic: []
 securityDefinitions:
   httpBasic:
+    description: "All requests require HTTP basic authentication, where user name\
+      \ equals the value used in\n                    MessageId.institutionId and\
+      \ password has been agreed with Electrum."
     type: "basic"
 definitions:
   AirtimeDataPurchase:
