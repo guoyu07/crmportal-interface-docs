@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>https://electrumpayments.github.io/crmportal-interface-docs/</loc>
@@ -11,32 +12,13 @@
   </url>
   
   <url>
-    <loc>https://electrumpayments.github.io/crmportal-interface-docs/specification/definitions/</loc>
-  </url>
-  
-  <url>
-    <loc>https://electrumpayments.github.io/crmportal-interface-docs/specification/introduction/</loc>
-  </url>
-  
-  <url>
-    <loc>https://electrumpayments.github.io/crmportal-interface-docs/specification/operations/</loc>
-  </url>
-  
-  <url>
-    <loc>https://electrumpayments.github.io/crmportal-interface-docs/protocol-basics/</loc>
-  </url>
-  
-  <url>
-    <loc>https://electrumpayments.github.io/crmportal-interface-docs/specification/release-notes/</loc>
-  </url>
-  
-  <url>
-    <loc>https://electrumpayments.github.io/crmportal-interface-docs/specification/</loc>
+    <loc>https://electrumpayments.github.io/crmportal-interface-docs/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://electrumpayments.github.io/crmportal-interface-docs/specification/swagger/</loc>
+    <loc>https://electrumpayments.github.io/crmportal-interface-docs/tags/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>

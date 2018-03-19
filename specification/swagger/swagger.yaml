@@ -2,14 +2,15 @@
 swagger: "2.0"
 info:
   description: "The Electrum CRM Portal Interface describes a server interface against\
-    \ which calls can be made to retrieve information from a backend CRM system. The\
-    \ intended use cases include the lookup of customer-linked account or purchase\
-    \ history data from a bank or retailer's CRM environment. It is not intended that\
-    \ the CRM system is hosted by Electrum, but rather that this interface abstracts\
-    \ the logic required to execute a set of predefined CRM queries, hence simplifying\
-    \ communication. Access to the CRM system itself will be handled independently\
-    \ through an appropriate client implementation."
-  version: "1.1.0"
+    \ which calls can be\n                  made to retrieve information from a backend\
+    \ CRM system. The intended use cases include the lookup of\n                 \
+    \ customer-linked account or purchase history data from a bank or retailer's CRM\
+    \ environment. It is not\n                  intended that the CRM system is hosted\
+    \ by Electrum, but rather that this interface abstracts the logic\n          \
+    \        required to execute a set of predefined CRM queries, hence simplifying\
+    \ communication. Access to the\n                  CRM system itself will be handled\
+    \ independently through an appropriate client implementation."
+  version: "2.0.0"
   title: "CRM Portal Interface"
   contact:
     name: "Electrum API"
@@ -19,11 +20,11 @@ info:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 host: "sandbox.electrum.io"
-basePath: "/crmportal/v1"
+basePath: "/crmportal/v2"
 schemes:
 - "https"
 paths:
-  /crmportal/v1/purchaseHistory:
+  /crmportal/v2/purchaseHistory:
     post:
       summary: "Query purchase history"
       description: "Lookup a customer's purchase history for a specified service."
@@ -48,11 +49,84 @@ paths:
       - httpBasic: []
 securityDefinitions:
   httpBasic:
-    description: "All requests require HTTP basic authentication, where user name\
-      \ equals the value used in\n                    MessageId.institutionId and\
-      \ password has been agreed with Electrum."
     type: "basic"
 definitions:
+  AirtimeDataPurchase:
+    type: "object"
+    required:
+    - "purchaseDate"
+    - "requestAmount"
+    - "serviceProvider"
+    - "status"
+    - "transactionId"
+    properties:
+      transactionId:
+        type: "string"
+        description: "Optional identifier for the transaction"
+      msisdn:
+        type: "string"
+        description: "The mobile number of the customer."
+      requestAmount:
+        type: "integer"
+        format: "int64"
+        description: "Amount in minor denomination, e.g. R799.95 is encoded as 79995"
+      serviceProvider:
+        type: "string"
+        description: "The provider of the service."
+      purchaseDate:
+        type: "string"
+        format: "date-time"
+        description: "Date of the purchase. The format shall be as defined for date-time\
+          \ in [RFC 3339 section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).\
+          \ It is recommended that the optional time-secfrac be included up to millisecond\
+          \ precision"
+      status:
+        type: "string"
+        description: "The status of the transaction."
+        enum:
+        - "PENDING"
+        - "SUCCESSFUL"
+        - "FAILED"
+      smartShopperCardTenders:
+        type: "array"
+        description: "An array of smart shopper card tenders."
+        items:
+          $ref: "#/definitions/SmartShopperCardTender"
+      paymentCardTenders:
+        type: "array"
+        description: "An array of credit card tenders."
+        items:
+          $ref: "#/definitions/PaymentCardTender"
+      productDescription:
+        type: "string"
+        readOnly: true
+    description: "Details of a airtime/data purchase"
+  PaymentCardTender:
+    type: "object"
+    required:
+    - "amount"
+    - "cardType"
+    - "maskedCardNumber"
+    - "status"
+    properties:
+      maskedCardNumber:
+        type: "string"
+        description: "A masked version of the card used to make the purchase."
+      cardType:
+        type: "string"
+        description: "The type of credit card used to make the purchase."
+      amount:
+        type: "integer"
+        format: "int64"
+        description: "Amount in minor denomination, e.g. R799.95 is encoded as 79995"
+      status:
+        type: "string"
+        description: "The status of the tender."
+        enum:
+        - "PENDING"
+        - "SUCCESSFUL"
+        - "FAILED"
+    description: "A credit card tender."
   PrepaidElectricityPurchase:
     type: "object"
     required:
@@ -60,22 +134,52 @@ definitions:
     - "meterId"
     - "purchaseDate"
     - "requestAmount"
+    - "serviceProvider"
     - "status"
     - "tenderAmount"
+    - "transactionId"
     properties:
       transactionId:
         type: "string"
         description: "Optional identifier for the transaction"
-      meterId:
+      msisdn:
         type: "string"
-      serviceProvider:
-        type: "string"
-      customerName:
-        type: "string"
+        description: "The mobile number of the customer."
       requestAmount:
         type: "integer"
         format: "int64"
         description: "Amount in minor denomination, e.g. R799.95 is encoded as 79995"
+      serviceProvider:
+        type: "string"
+        description: "The provider of the service."
+      purchaseDate:
+        type: "string"
+        format: "date-time"
+        description: "Date of the purchase. The format shall be as defined for date-time\
+          \ in [RFC 3339 section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).\
+          \ It is recommended that the optional time-secfrac be included up to millisecond\
+          \ precision"
+      status:
+        type: "string"
+        description: "The status of the transaction."
+        enum:
+        - "PENDING"
+        - "SUCCESSFUL"
+        - "FAILED"
+      smartShopperCardTenders:
+        type: "array"
+        description: "An array of smart shopper card tenders."
+        items:
+          $ref: "#/definitions/SmartShopperCardTender"
+      paymentCardTenders:
+        type: "array"
+        description: "An array of credit card tenders."
+        items:
+          $ref: "#/definitions/PaymentCardTender"
+      meterId:
+        type: "string"
+      customerName:
+        type: "string"
       tenderAmount:
         type: "integer"
         format: "int64"
@@ -90,14 +194,6 @@ definitions:
         type: "string"
       freeToken:
         type: "string"
-      purchaseDate:
-        type: "string"
-      status:
-        type: "string"
-        enum:
-        - "PENDING"
-        - "SUCCESSFUL"
-        - "FAILED"
       tariffBreakdown:
         type: "string"
       tariffTotal:
@@ -116,7 +212,7 @@ definitions:
         type: "integer"
         format: "int64"
         description: "Amount in minor denomination, e.g. R799.95 is encoded as 79995"
-    description: "Details of a purchase"
+    description: "Details of a prepaid electricity purchase"
   PurchaseHistoryRequest:
     type: "object"
     required:
@@ -129,6 +225,8 @@ definitions:
         description: "The service for which information is requested (e.g. electricity)."
         enum:
         - "ELECTRICITY"
+        - "AIRTIME"
+        - "DATA"
       customerId:
         type: "string"
         description: "ID of the customer for which information is requested. The type\
@@ -138,6 +236,7 @@ definitions:
         description: "Type of ID used to specify the customer (eg. loyalty card number)."
         enum:
         - "LOYALTY_CARD"
+        - "CREDIT_CARD"
     description: "Object containing request parameters."
   PurchaseHistoryResponse:
     type: "object"
@@ -147,3 +246,30 @@ definitions:
         description: "An array of prepaid electricity purchases."
         items:
           $ref: "#/definitions/PrepaidElectricityPurchase"
+      airtimeDataPurchaseHistory:
+        type: "array"
+        description: "An array of airtime/data purchases."
+        items:
+          $ref: "#/definitions/AirtimeDataPurchase"
+  SmartShopperCardTender:
+    type: "object"
+    required:
+    - "amount"
+    - "smartShopperAccountNumber"
+    - "status"
+    properties:
+      smartShopperAccountNumber:
+        type: "string"
+        description: "The number on the smart shopper card."
+      amount:
+        type: "integer"
+        format: "int64"
+        description: "Amount in minor denomination, e.g. R799.95 is encoded as 79995"
+      status:
+        type: "string"
+        description: "The status of the tender."
+        enum:
+        - "PENDING"
+        - "SUCCESSFUL"
+        - "FAILED"
+    description: "A smart shopper card tender."
