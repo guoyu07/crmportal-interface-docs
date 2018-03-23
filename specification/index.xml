@@ -54,7 +54,7 @@ Response Content-Type: application/json
       
       <guid>https://electrumpayments.github.io/crmportal-interface-docs/specification/release-notes/</guid>
       <description>This page describes changes to the CRM Portal Interface implemented for different releases of the interface.
-v2.0.0 Released 22 March 2018
+v2.0.1 Released 22 March 2018
  Added missing set method in AirtimeDatePurchase class.  v2.0.0 Released 19 March 2018
  Not backwards compatible. Added BaseResponse class. PrepaidElectricityPurchase class now extends the BaseResponse class. Added a AirtimeDataPurchase class that extends the BaseResponse class. Added multiple tender support.  v1.0.1 Released 2 February 2017
  PurchaseHistoryRequest JSON body is required in post  v1.</description>
