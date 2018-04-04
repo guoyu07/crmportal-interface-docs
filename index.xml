@@ -35,7 +35,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://electrumpayments.github.io/crmportal-interface-docs/specification/introduction/</guid>
-      <description>Version 2.0.1
+      <description>Version 2.0.2
 The Electrum CRM Portal Interface describes a server interface against which calls can be made to retrieve information from a backend CRM system. The intended use cases include the lookup of customer-linked account or purchase history data from a bank or retailer&amp;#x27;s CRM environment. It is not intended that the CRM system is hosted by Electrum, but rather that this interface abstracts the logic required to execute a set of predefined CRM queries, hence simplifying communication.</description>
     </item>
     
@@ -73,10 +73,10 @@ Security All communication must be secured by establishing an SSL encrypted tran
       
       <guid>https://electrumpayments.github.io/crmportal-interface-docs/specification/release-notes/</guid>
       <description>This page describes changes to the CRM Portal Interface implemented for different releases of the interface.
-v2.0.1 Released 22 March 2018
+v2.0.2 Released 4 April 2018
+ Changed enum of DATA to DATA_BUNDLE in the PurchaseHistoryRequest class.  v2.0.1 Released 22 March 2018
  Added missing set method in AirtimeDatePurchase class.  v2.0.0 Released 19 March 2018
- Not backwards compatible. Added BaseResponse class. PrepaidElectricityPurchase class now extends the BaseResponse class. Added a AirtimeDataPurchase class that extends the BaseResponse class. Added multiple tender support.  v1.0.1 Released 2 February 2017
- PurchaseHistoryRequest JSON body is required in post  v1.</description>
+ Not backwards compatible. Added BaseResponse class. PrepaidElectricityPurchase class now extends the BaseResponse class. Added a AirtimeDataPurchase class that extends the BaseResponse class.</description>
     </item>
     
     <item>
