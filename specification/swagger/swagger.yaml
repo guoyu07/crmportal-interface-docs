@@ -10,7 +10,7 @@ info:
     \        required to execute a set of predefined CRM queries, hence simplifying\
     \ communication. Access to the\n                  CRM system itself will be handled\
     \ independently through an appropriate client implementation."
-  version: "2.0.1"
+  version: "2.0.2"
   title: "CRM Portal Interface"
   contact:
     name: "Electrum API"
@@ -228,7 +228,7 @@ definitions:
         enum:
         - "ELECTRICITY"
         - "AIRTIME"
-        - "DATA"
+        - "DATA_BUNDLE"
       customerId:
         type: "string"
         description: "ID of the customer for which information is requested. The type\
